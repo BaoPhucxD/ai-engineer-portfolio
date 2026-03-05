@@ -5,3 +5,4 @@
 
 ## Weekly log
 - Day 1: Create Repo, write README.md and complete Kaggle Python lessons.
+- Day 2: Finished Kaggle Python lessons, and Pandas lessons.
