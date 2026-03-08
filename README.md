@@ -96,3 +96,23 @@ col_means = df.apply(lambda col: col.mean())
 row_sums = df.apply(lambda row: row.sum(), axis=1)
 ```
 
+### Day 4 - Pandas grouping and sorting
+
+#### Groupwise analysis (Phân tích theo nhóm)
+- **`groupby()`** groups rows in a **DataFrame** (or values in a **Series**) by one or more keys.
+- After grouping, you can use **summary functions** (e.g., `count`, `mean`, `max`) or more advanced operations like `apply()` and `agg()`
+```python 
+dataset.groupby("points").points.count()
+dataset.groupby("points").apply(lambda df: df.title.iloc[0])
+dataset.groupby(["country", "province"]).apply(lambda df: df.loc[df.points.idxmax()])
+dataset.groupby("points").agg([min, len, max])
+```
+
+#### Sorting
+- **`reset_index()`**: to turn index levels back into normal columns after use groupby()
+- **`sort_values()`**: sort rows by one or more columns
+```python
+dataset_reset_index = dataset.reset_index()
+dataset_reset_index.sort_values(by = "len")
+dataset_reset_index.sort_values(by = ["len", "points"])
+```
