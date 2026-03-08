@@ -7,6 +7,7 @@
 - Day 1: Create Repo, write README.md and complete Kaggle Python lessons.
 - Day 2: Completed the Kaggle Python and Pandas lessons.
 - Day 3: Learn summary functions and maps.
+- Day 4: Learn grouping and sorting in pandas.
 
 ## Review
 - Day 1: we have to git pull before git push anything to github. We have a procesion:
