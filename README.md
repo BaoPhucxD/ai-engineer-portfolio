@@ -8,7 +8,7 @@
 - Day 2: Completed the Kaggle Python and Pandas lessons.
 - Day 3: Learn summary functions and maps.
 - Day 4: Learn grouping and sorting in pandas.
-- Day 5: Learn data types and missing values
+- Day 5: Learn data types and missing values, renaming and combining.
 
 ## Review
 - Day 1: we have to git pull before git push anything to github. We have a procesion:
@@ -142,4 +142,26 @@ dataset[pd.isnull(dataset.points)]
 dataset.points.fillna("Unknown")
 #replace name "BaoPhuc" with "BaoPhucxD"
 dataset.names.replace("BaoPhuc", "BaoPhucxD")
+```
+#### Renaming 
+- **`rename()`**: Changes index labels or column names using a dictionary mapping
+- **`set_index()`**: Sets an existing DataFrame column to become the new index
+- **`rename_axis()`**: Assigns a specific name to the index or column axis itself
+```python
+dataset.rename(columns = {"points": "score"})
+dataset.rename(index = {0: "first_entry", 1: "second_entry"})
+dataset.set_index("points": "score")
+dataset.rename_axis("wires", axis = "rows")
+```
+
+#### Combining
+- **`concat()`**: Concatenates (stacks) DataFrames together along a specified axis (typically stacking rows on top of each other)
+- **`join()`**: combine different dataframe objects horizontally based on a shared index
+```python
+canadian_youtube = pd.read_csv("link")
+vietnamese_youtube = pd.read_csv("link")
+pd.concat([canadian_youtube, vietnamese_youtube])
+left = canadian_youtube.set_index(["title", "trend_date"])
+right = vietnamese_youtube(["title", "trend_date"])
+left.join(right, lsuffix = "_CAN", rsuffix = "_VNE")
 ```
