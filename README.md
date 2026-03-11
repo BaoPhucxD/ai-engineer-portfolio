@@ -8,6 +8,7 @@
 - Day 2: Completed the Kaggle Python and Pandas lessons.
 - Day 3: Learn summary functions and maps.
 - Day 4: Learn grouping and sorting in pandas.
+- Day 5: Learn data types and missing values
 
 ## Review
 - Day 1: we have to git pull before git push anything to github. We have a procesion:
@@ -116,4 +117,29 @@ dataset.groupby("points").agg([min, len, max])
 dataset_reset_index = dataset.reset_index()
 dataset_reset_index.sort_values(by = "len")
 dataset_reset_index.sort_values(by = ["len", "points"])
+```
+
+### Day 5 - Data types and missing values
+
+#### Data types
+- **`dtype`** returns the data type of a  specific column in a Dataframe or Series
+```python
+dataset.points.dtype
+```
+- **`astype()`** converts a column from one type to another
+```python
+dataset.points.astype("float64")
+```
+#### Missing values
+- **NaN**: stand for Not a Number 
+- **`pd.isnull()`**: identifies and select NaN entries
+- **`fillna()`**: replace NaN entries with a specified value 
+- **`replace()`**: replace a specific existing value with another value 
+```python
+#select NaN values
+dataset[pd.isnull(dataset.points)]
+#fill NaN valuees with "Unknown"
+dataset.points.fillna("Unknown")
+#replace name "BaoPhuc" with "BaoPhucxD"
+dataset.names.replace("BaoPhuc", "BaoPhucxD")
 ```
